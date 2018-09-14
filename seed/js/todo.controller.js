@@ -21,6 +21,10 @@ function ToDoController() {
     });
     this.newTodo = '';
   };
+
+  this.removeTodo = function (item, index) {
+    this.list.splice(index, 1);
+  };
 }
 
 angular
