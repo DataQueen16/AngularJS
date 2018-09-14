@@ -1,17 +1,26 @@
 function ToDoController() {
+  this.newTodo = '';
   this.list = [{
     title: 'First todo item',
-    completed: 'false'
+    completed: true
   },
     {
       title: 'Second todo item',
-      completed: 'false'
+      completed: false
     },
     {
       title: 'Third todo item',
-      completed: 'false'
+      completed: false
     }
   ];
+
+  this.addTodo = function () {
+    this.list.unshift({
+      title: this.newTodo,
+      completed: false
+    });
+    this.newTodo = '';
+  };
 }
 
 angular
