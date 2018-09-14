@@ -12,8 +12,8 @@
   <div class="todo" ng-controller="ToDoController as todo">
     <ul class="todo__list">
       <li ng-repeat="item in todo.list">
-        <input type="checkbox" id="todo-{{ index }}" ng-model="item.completed">
-        <label class="toggle" for="todo-{{ index }}"></label>
+        <input type="checkbox" id="todo-{{ $index }}" ng-model="item.completed">
+        <label class="toggle" for="todo-{{ $index }}"></label>
         <p>
           {{ item.title}}
         </p>
