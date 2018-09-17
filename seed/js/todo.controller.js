@@ -37,6 +37,11 @@ function ToDoController(TodoService) {
   };
 
   ctrl.updateTodo = function (item, index){
+    if (!item.title){
+      TodoService
+        ctrl.removeTodo(item, index);
+        return;
+    }
     TodoService
       .update(item)
   };
@@ -45,6 +50,16 @@ function ToDoController(TodoService) {
     return ctrl.list.filter(function (item) {
       return !item.completed;
     });
+  };
+
+  ctrl.toggleState = function (item) {
+    TodoService
+      .update(item)
+      .then(function () {
+        //Do nothing if updatesd correctly
+      }, function () {
+        item.completed = !item.completed;
+      });
   };
 
   getTodos();
