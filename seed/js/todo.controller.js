@@ -42,6 +42,7 @@ function ToDoController(TodoService) {
         ctrl.removeTodo(item, index);
         return;
     }
+
     TodoService
       .update(item)
   };
@@ -56,7 +57,7 @@ function ToDoController(TodoService) {
     TodoService
       .update(item)
       .then(function () {
-        //Do nothing if updatesd correctly
+        //Do nothing if updates correctly
       }, function () {
         item.completed = !item.completed;
       });
